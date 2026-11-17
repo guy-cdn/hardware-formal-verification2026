@@ -18,4 +18,8 @@ asm3: assume property (@(posedge clk) count < 32'd17);
 // Unreachable: cycle 42 lies beyond the conflict at cycle 17.
 cov3: cover property (@(posedge clk) count == 32'd42);
 
+// Covered, length 7: no assume is violated in the first 7 cycles,
+// so results before the conflict look normal.
+cov4: cover property (@(posedge clk) count == 32'd7);
+
 endmodule
