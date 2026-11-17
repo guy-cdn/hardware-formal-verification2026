@@ -15,7 +15,7 @@ end
 // 16 cycles -- a conflict.
 asm3: assume property (@(posedge clk) count < 32'd17);
 
-// Unreachable: cycle 42 lies beyond the dead end at cycle 16.
+// Unreachable: cycle 42 lies beyond the conflict at cycle 17.
 cov3: cover property (@(posedge clk) count == 32'd42);
 
 endmodule
