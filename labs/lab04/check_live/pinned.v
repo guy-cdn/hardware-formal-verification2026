@@ -11,9 +11,7 @@ always @(posedge clk) begin
   end
 end
 
-// Each assume is satisfiable on its own, and for a signal that can
-// toggle the two would coexist (a = 0,1,0,1,... satisfies both).
-// Here the design pins a to 1, so asm_d can never be honored: no
+// The design pins a to 1, so asm_d can never be honored: no
 // infinite trace survives -- the fairness assumes conflict.
 asm_c: assume property (@(posedge clk) s_eventually (a));
 asm_d: assume property (@(posedge clk) s_eventually (!a));
