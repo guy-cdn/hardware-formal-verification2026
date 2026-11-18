@@ -18,8 +18,8 @@ end
 asm_c: assume property (@(posedge clk) s_eventually (a));
 asm_d: assume property (@(posedge clk) s_eventually (!a));
 
-// Note: a fairness assume never fails on a FINITE trace, so there
-// is no dead end for the -conflict check to find; this conflict
-// lives only at infinity. check_assumptions -live detects it.
+// Note: check_assumptions -conflict does not check the fairness
+// constraints, so it will not find this conflict;
+// check_assumptions -live does.
 
 endmodule
